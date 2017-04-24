@@ -1,0 +1,17 @@
+{
+  "name": "npm-demo",
+  "version": "1.0.0",
+  "description": "jast a demo",
+  "main": "a.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1","ttt":"node a.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "why",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
