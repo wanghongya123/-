@@ -6,5 +6,6 @@ function sayname1(name1){
 }
 module.exports = {
   sayname:sayname,
-  sayname1:sayname1,
+  sayname1:sayname1,s
 }
+x

@@ -301,3 +301,121 @@ let arr = [
 let ttt = arr.findIndex(item=>item.age ===151)
 console.log(ttt)
 ```
+箭头函数的ｔｈｉｓ指向
+```js
+function foo(){
+  console.log(this);//12
+  setTimeout(()=>{
+    console.log(this);//12
+    console.log("id:",this.id),100//id:12
+  })
+}
+var id = 25;
+foo.call({id:12})
+
+```
+## 继承
+class [name]()//定义类
+class [name1] extends [name]{}//继承类
+class [name1] extends [name]{
+  constructor(){
+    super()
+  }
+}
+class只能写一个个方法，方法与方法之间什么都不加
+class 首字母大写
+```js
+_render(){
+    throw new Error("子集错误")
+  }
+  render(){
+    return(`<ul>
+      ${this._render()}
+    <ul>`)
+
+  }
+}
+class Son extends Father{
+  _render(){
+    return (`<li>哈哈哈</li>`)
+  }
+}
+var son = new Son()
+console.log(son.render());
+document.body.innerHTML=son.render()
+
+```
+*****************************************************
+******************************************************
+*****************************************************
+# React
+react-Dom .render方法 把hello渲染到浏览器中的root中
+react-Dom .render（hello,document.getElementById("root")）
+## jsx语法
+jsx 语法需要ｂａｂｅｌ进行编译　　转化这个方法　React.createElememt();
+
+  特点一：相邻的jsx元素必须在一个闭合的标签内；
+  特点二：每一个标签必须闭合
+  特点三：没有闭合的标签携程＝写成在关闭
+  class = className;for=htmlFor
+  区分大小写
+
+```js
+
+//例
+import React from "react";
+import ReactDom from "react-dom";
+let age = 18;
+let h = "HELLO";
+function　sum(x,y){
+  return x+y
+}
+let hello =<div>
+  <p>hello word</p>;
+  <lable htmlfor="name">姓名</lable>
+  <input value="sss" id="name" />
+  <h1>dff {h.toLowerCase()} dvvd </h1>
+  <p className="afs">{sum(5,9)}   {age}</p>
+  <p>{Date.note}</p>
+
+</div>
+ReactDom.render(hello,document.querySelector("#root"))
+```
+
+## React 组件有三种－－－当自定义标签用首字母必须大写
+  第一种组件React.createClass(
+  ```js
+
+  let Hello = React.createClass({
+    render:function(){
+      return(
+        <div>
+          <h1>第一种组件的创建方式</h1>
+        </div>
+      )
+    }
+  })
+  ReactDom.render(<Hello></Hello>,document.querySelector("#root"))
+  ```
+  第二种
+```js
+  function Hello(){
+    return (
+      <h1>我是第二种组件创建方式有返回值，必须是jsx elements</h1>
+      )
+  }
+ReactDom.render(<Hello></Hello>,document.querySelector("#root"))
+```
+第三种
+```js
+class My extends React.Component{
+  render(){
+    return(
+      <div>
+        <h3>我是第三种组件创建方式</h3>
+      </div>
+    )
+  }
+}
+ReactDom.render(<My/>,document.querySelector("#root"))
+```
