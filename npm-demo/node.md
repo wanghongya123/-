@@ -419,3 +419,56 @@ class My extends React.Component{
 }
 ReactDom.render(<My/>,document.querySelector("#root"))
 ```
+
+*******************************************************
+# 数量＋１
+```js
+import React from "react";
+import Header from "./header.js"
+
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      num:0
+    }
+  };
+  handleClick(){
+  this.setState({//更该上面num
+    num:this.state.num + 1
+  })
+  }
+  render(){
+    return(
+      <div>
+        <p>数量是：{this.state.num}</p>
+        <button onClick={this.handleClick.bind(this)}>+1</button>//.bind绑定ｔｈｉｓ指向ａｐｐ
+        <Header />
+      </div>
+    )
+  }
+}
+export default App
+```
+# 选项卡
+```js
+class Tab extends React.Component{
+  handleTab(tab){
+    this.setState({tab})
+  }
+  render(){
+    return(
+      <div>
+        <button onClick =   <button onClick={this.handTab.bind(this,0)}>选项卡一</button>
+        <button onClick={this.handTab.bind(this,1)}>选项卡二</button>
+        <button onClick={this.handTab.bind(this,2)}>选项卡三</button><br/>
+        {
+          this.state.tab===0 ? "我是选项卡一":
+          this.state.tab===1 ? "我是选项卡二":"我是选项卡三"
+        }
+      </div>
+    )
+  }
+
+}
+```
